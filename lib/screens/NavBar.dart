@@ -33,25 +33,31 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     var _image;
     var _label;
+    var _title;
+
     switch(_selectedIndex){
       case 0:
-        _image = Icon(Icons.message);
-        _label = 'message';
+        _image = Icon(Icons.call);
+        _label = 'Call';
+        _title = 'SafePaths';
+
         break;
       case 1:
-        _image = Icon(Icons.local_hospital);
-        _label = 'hospital';
+        _image = Icon(Icons.location_searching);
+        _label = 'Hospital';
+        _title = 'SafeMap';
 
         break;
       case 2:
-        _image = Icon(Icons.message);
-        _label = 'message';
+        _image = Icon(Icons.call);
+        _label = 'Call';
+        _title = 'Emergency Numbers';
 
         break;
       case 3:
         _image = Icon(Icons.message);
         _label = 'message';
-
+        _title = 'SafePaths';
         break;
       default:
         _image = Icon(Icons.message);
@@ -66,8 +72,8 @@ class _NavBarState extends State<NavBar> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('SafePaths'),
-        backgroundColor: Colors.green,
+        title: Text(_title),
+        backgroundColor: Color(0xFF6070f2),
       ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
@@ -75,11 +81,11 @@ class _NavBarState extends State<NavBar> {
       ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            // Add your onPressed code here!
+
           },
           icon: _image,
           label: Text(_label),
-          backgroundColor: Colors.green,
+          backgroundColor: Color(0xFF6070f2),
           splashColor: Colors.green,
 
 
@@ -111,7 +117,7 @@ class _NavBarState extends State<NavBar> {
           ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Colors.green,
+      selectedItemColor: Color(0xFF6070f2),
       type: BottomNavigationBarType.fixed,
       onTap: _onItemTapped,)
     );
