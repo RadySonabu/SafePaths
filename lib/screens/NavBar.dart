@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:safepaths/screens/ContactScreen.dart';
+import 'package:safepaths/screens/HomeScreen.dart';
+import 'package:safepaths/screens/LocationScreen.dart';
+import 'package:safepaths/screens/HistoryScreen.dart';
 class NavBar extends StatefulWidget {
   @override
   _NavBarState createState() => _NavBarState();
@@ -7,25 +10,15 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Safe routes',
-      style: optionStyle,
-    ),
-    Text(
-      'Contacts',
-      style: optionStyle,
-    ),
-    Text(
-      'History',
-      style: optionStyle,
-    ),
+
+   List<Widget> _widgetOptions = <Widget>[
+     new HomeScreen(),
+     new LocationScreen(),
+     new ContactScreen(),
+     new HistoryScreen()
+
+
+
   ];
 
   void _onItemTapped(int index) {
@@ -38,10 +31,21 @@ class _NavBarState extends State<NavBar> {
     return Scaffold(
       appBar: AppBar(
         title: Text('SafePaths'),
+        backgroundColor: Colors.green,
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions[_selectedIndex],
+
       ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // Add your onPressed code here!
+          },
+          child: Icon(Icons.message),
+          backgroundColor: Colors.green,
+          splashColor: Colors.green,
+
+        ),
         bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,
           showUnselectedLabels: true,
@@ -54,22 +58,22 @@ class _NavBarState extends State<NavBar> {
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-          icon: Icon(Icons.business,),
-          title: Text('Business', ),
+          icon: Icon(Icons.near_me,),
+          title: Text('Nearby', ),
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-          icon: Icon(Icons.school,),
-          title: Text('School', ),
+          icon: Icon(Icons.contact_phone,),
+          title: Text('Contacts', ),
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-          icon: Icon(Icons.add, ),
+          icon: Icon(Icons.history, ),
           title: Text('History', ),
           ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Colors.amber[800],
+      selectedItemColor: Colors.green,
       type: BottomNavigationBarType.fixed,
       onTap: _onItemTapped,)
     );
