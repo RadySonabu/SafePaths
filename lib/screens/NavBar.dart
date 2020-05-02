@@ -79,16 +79,10 @@ class _NavBarState extends State<NavBar> {
         child: _widgetOptions[_selectedIndex],
 
       ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
+        floatingActionButton: Row(
+          children: <Widget>[
 
-          },
-          icon: _image,
-          label: Text(_label),
-          backgroundColor: Color(0xFF6070f2),
-          splashColor: Colors.green,
-
-
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,

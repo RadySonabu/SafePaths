@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 print('Card tapped.');
               },
               child: Container(
-                height: 200,
+
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -60,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               children: <Widget>[
                 Card(
+
                   margin: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 7.0),
                   elevation: 2,
                   child: InkWell(
