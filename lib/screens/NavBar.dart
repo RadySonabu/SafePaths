@@ -26,8 +26,44 @@ class _NavBarState extends State<NavBar> {
       _selectedIndex = index;
     });
   }
+
+
+
   @override
   Widget build(BuildContext context) {
+    var _image;
+    var _label;
+    switch(_selectedIndex){
+      case 0:
+        _image = Icon(Icons.message);
+        _label = 'message';
+        break;
+      case 1:
+        _image = Icon(Icons.local_hospital);
+        _label = 'hospital';
+
+        break;
+      case 2:
+        _image = Icon(Icons.message);
+        _label = 'message';
+
+        break;
+      case 3:
+        _image = Icon(Icons.message);
+        _label = 'message';
+
+        break;
+      default:
+        _image = Icon(Icons.message);
+        _label = 'message';
+
+        break;
+
+
+    }
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text('SafePaths'),
@@ -37,13 +73,15 @@ class _NavBarState extends State<NavBar> {
         child: _widgetOptions[_selectedIndex],
 
       ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
             // Add your onPressed code here!
           },
-          child: Icon(Icons.message),
+          icon: _image,
+          label: Text(_label),
           backgroundColor: Colors.green,
           splashColor: Colors.green,
+
 
         ),
         bottomNavigationBar: BottomNavigationBar(

@@ -17,7 +17,10 @@ class _LocationScreenState extends State<LocationScreen> {
           fit: BoxFit.cover,
           height: 800,
         ),
+
       ),
+
+
 
     );
   }
