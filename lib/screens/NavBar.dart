@@ -57,7 +57,7 @@ class _NavBarState extends State<NavBar> {
       case 3:
         _image = Icon(Icons.message);
         _label = 'message';
-        _title = 'SafePaths';
+        _title = 'SafePaths Acount';
         break;
       default:
         _image = Icon(Icons.message);
@@ -80,8 +80,19 @@ class _NavBarState extends State<NavBar> {
 
       ),
         floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
+            FloatingActionButton.extended(
+              onPressed: () {
 
+              },
+              icon: _image,
+              label: Text(_label),
+              backgroundColor: Color(0xFF6070f2),
+              splashColor: Colors.green,
+
+
+            ),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -106,8 +117,8 @@ class _NavBarState extends State<NavBar> {
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-          icon: Icon(Icons.history, ),
-          title: Text('History', ),
+          icon: Icon(Icons.person, ),
+          title: Text('Account', ),
           ),
       ],
       currentIndex: _selectedIndex,

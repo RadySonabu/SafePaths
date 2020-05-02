@@ -7,6 +7,56 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Widget> _images = [
+    Image(
+      image: AssetImage('assets/images/facts.jpg'),
+    ),
+    Image(
+      image: AssetImage('assets/images/reduce_transmit.jpg'),
+    ),
+    Image(
+      image: AssetImage('assets/images/spread_covid.jpg'),
+    ),
+    Image(
+      image: AssetImage('assets/images/spread_covid.jpg'),
+    ),
+  ];
+
+  void _showDialog(int index) {
+    // flutter defined function
+    showGeneralDialog(
+      context: context,
+      barrierColor: Colors.black12.withOpacity(0.6), // background color
+      barrierDismissible: false, // should dialog be dismissed when tapped outside
+      barrierLabel: "Dialog", // label for barrier
+      transitionDuration: Duration(milliseconds: 400), // how long it takes to popup dialog after button click
+      pageBuilder: (_, __, ___) { // your widget implementation
+        return SizedBox.expand( // makes widget fullscreen
+          child: Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 15,
+                  child: SizedBox.expand(child: _images[index]
+                  ),
+                ),
+                Expanded(
+                    flex: 1,
+                    child: SizedBox.expand(
+                      child: FloatingActionButton(
+                        backgroundColor: Colors.transparent,
+                        child: Text('X'),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    )
+                ),
+              ]),
+
+        );
+      });
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
-                      print('Card tapped.');
+
                     },
                     child: Container(
                       height: 200,
@@ -87,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
-                      print('Card tapped.');
+                      _showDialog(1);
                     },
                     child: Container(
                       height: 200,
@@ -107,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
-                      print('Card tapped.');
+                      _showDialog(2);
                     },
                     child: Container(
                       height: 200,
@@ -127,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
-                      print('Card tapped.');
+                      _showDialog(3);
                     },
                     child: Container(
                       height: 300,
@@ -135,6 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Image(
                             image: AssetImage('assets/images/spread_covid.jpg'),
+
                           )
                       ),
                     ),
