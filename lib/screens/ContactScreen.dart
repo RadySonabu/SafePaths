@@ -9,12 +9,122 @@ class _ContactScreenState extends State<ContactScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
+
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
         children: <Widget>[
-          Text('Nearby emergency contact'),
-          Text('DOH: 999 9999')
+
+          Card(
+            semanticContainer: true,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 5,
+            margin: EdgeInsets.all(10),
+            child: Stack(
+              alignment: Alignment.bottomLeft,
+              children: <Widget>[
+
+                Image.asset(
+                  "assets/images/911.png",
+                  width: 300,
+                  height: 300,
+                  fit: BoxFit.fitHeight,
+                ),
+                Container(
+                  color: Colors.grey[50],
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+//                      Text(data['data']['cases'].toString(), style: TextStyle(fontSize: 30, color: Colors.grey[900])),
+                      Text("911 EMERGENCY", style: TextStyle(fontSize: 18,color: Colors.grey[500])),
+                    ],
+                  ),
+                )
+              ],
+            ),
+
+          ),
+          Card(
+            semanticContainer: true,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 5,
+            margin: EdgeInsets.all(10),
+            child: Stack(
+              alignment: Alignment.bottomLeft,
+              children: <Widget>[
+
+                Image.asset(
+                  "assets/images/doh.png",
+                  width: 300,
+                  height: 300,
+                  fit: BoxFit.fitHeight,
+                ),
+                Container(
+                  color: Colors.grey[50],
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+//                      Text(data['data']['cases'].toString(), style: TextStyle(fontSize: 30, color: Colors.grey[900])),
+                      Text("DEPARTMENT OF HEALTH", style: TextStyle(fontSize: 18,color: Colors.grey[500])),
+                    ],
+                  ),
+                )
+              ],
+            ),
+
+          ),
+          Card(
+            semanticContainer: true,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 5,
+            margin: EdgeInsets.all(10),
+            child: Stack(
+              alignment: Alignment.bottomLeft,
+              children: <Widget>[
+
+                Image.asset(
+                  "assets/images/pnp.jpg",
+                  width: 300,
+                  height: 300,
+                  fit: BoxFit.fitHeight,
+                ),
+                Container(
+                  color: Colors.grey[50],
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+//                      Text(data['data']['cases'].toString(), style: TextStyle(fontSize: 30, color: Colors.grey[900])),
+                      Text("PHILIPPINE NATIONAL POLICE", style: TextStyle(fontSize: 18,color: Colors.grey[500])),
+                    ],
+                  ),
+                )
+              ],
+            ),
+
+          ),
+
+
         ],
-      ),
+
+      )
     );
   }
 }
