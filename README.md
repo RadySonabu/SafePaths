@@ -1,6 +1,8 @@
 # safepaths
 
-A new Flutter application.
+An application that shows safe paths, avoiding COVID-19 positives.
+
+-UI
 
 ## Getting Started
 
